@@ -1,8 +1,19 @@
 import React from "react";
-import { Heading } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
+import Calculator from "../components/Calculator";
 
 function App() {
-    return <Heading>Hello world!</Heading>;
+    return (
+        <Container
+            maxW="100vw"
+            height="100vh"
+            display="grid"
+            placeItems="center"
+            backgroundColor="#E5E5E5"
+        >
+            <Calculator />
+        </Container>
+    );
 }
 
 export default App;
