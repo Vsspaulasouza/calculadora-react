@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Text } from "@chakra-ui/react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import CalcButton from "./CalcButton";
 
 function CalcHeader() {
@@ -20,7 +21,7 @@ function CalcHeader() {
             >
                 000
             </Text>
-            <CalcButton>←</CalcButton>
+            <CalcButton icon={<ArrowBackIcon />} />
         </Container>
     );
 }

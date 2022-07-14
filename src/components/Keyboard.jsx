@@ -1,65 +1,37 @@
+import { Grid } from "@chakra-ui/react";
 import React from "react";
 import CalcButton from "./CalcButton";
 
 function Keyboard() {
     return (
-        <div>
-            <CalcButton data-operacao="simples" id="clear">
-                C
+        <Grid
+            templateColumns="repeat(4, 1fr)"
+            rowGap="13px"
+            justifyItems="center"
+            alignItems="center"
+        >
+            <CalcButton data-operacao="simples">C</CalcButton>
+            <CalcButton data-operacao="simples">±</CalcButton>
+            <CalcButton data-operacao="complexa">%</CalcButton>
+            <CalcButton data-operacao="complexa">÷</CalcButton>
+            <CalcButton data-number="true">7</CalcButton>
+            <CalcButton data-number="true">8</CalcButton>
+            <CalcButton data-number="true">9</CalcButton>
+            <CalcButton data-operacao="complexa">x</CalcButton>
+            <CalcButton data-number="true">4</CalcButton>
+            <CalcButton data-number="true">5</CalcButton>
+            <CalcButton data-number="true">6</CalcButton>
+            <CalcButton data-operacao="complexa">-</CalcButton>
+            <CalcButton data-number="true">1</CalcButton>
+            <CalcButton data-number="true">2</CalcButton>
+            <CalcButton data-number="true">3</CalcButton>
+            <CalcButton data-operacao="complexa">+</CalcButton>
+            <CalcButton data-number="true">,</CalcButton>
+            <CalcButton data-number="true">0</CalcButton>
+            <CalcButton gridcolumn="3/5" w="215px">
+                =
             </CalcButton>
-            <CalcButton data-operacao="simples" id="oposto">
-                ±
-            </CalcButton>
-            <CalcButton data-operacao="complexa" id="porcentagem">
-                %
-            </CalcButton>
-            <CalcButton data-operacao="complexa" id="divisao">
-                ÷
-            </CalcButton>
-            <CalcButton data-number="true" id="sete">
-                7
-            </CalcButton>
-            <CalcButton data-number="true" id="oito">
-                8
-            </CalcButton>
-            <CalcButton data-number="true" id="nove">
-                9
-            </CalcButton>
-            <CalcButton data-operacao="complexa" id="multiplicacao">
-                x
-            </CalcButton>
-            <CalcButton data-number="true" id="quatro">
-                4
-            </CalcButton>
-            <CalcButton data-number="true" id="cinco">
-                5
-            </CalcButton>
-            <CalcButton data-number="true" id="seis">
-                6
-            </CalcButton>
-            <CalcButton data-operacao="complexa" id="subtracao">
-                -
-            </CalcButton>
-            <CalcButton data-number="true" id="um">
-                1
-            </CalcButton>
-            <CalcButton data-number="true" id="dois">
-                2
-            </CalcButton>
-            <CalcButton data-number="true" id="tres">
-                3
-            </CalcButton>
-            <CalcButton data-operacao="complexa" id="soma">
-                +
-            </CalcButton>
-            <CalcButton data-number="true" id="virgula">
-                ,
-            </CalcButton>
-            <CalcButton data-number="true" id="zero">
-                0
-            </CalcButton>
-            <CalcButton id="igual">=</CalcButton>
-        </div>
+        </Grid>
     );
 }
 
