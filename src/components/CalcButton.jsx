@@ -34,9 +34,9 @@ CalcButton.propTypes = {
 };
 
 CalcButton.defaultProps = {
-    w: "90px",
-    bgcolor: "#3A4E89",
-    color: "#fff",
+    w: "100px",
+    bgcolor: "#fff",
+    color: "#3A4E89",
     icon: "",
     gridcolumn: "",
 };
