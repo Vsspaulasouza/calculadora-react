@@ -7,7 +7,7 @@ function CalcButton({ w, gridcolumn, bgcolor, color, icon, children }) {
         <Button
             gridColumn={gridcolumn}
             w={w}
-            h="90px"
+            h={{ base: "60px", sm: "80px", md: "90px" }}
             borderRadius="20px"
             cursor="pointer"
             boxShadow="5px 5px 10px 0px rgba(55, 84, 170, .1)"
@@ -41,7 +41,7 @@ CalcButton.propTypes = {
 };
 
 CalcButton.defaultProps = {
-    w: "100px",
+    w: { base: "60px", sm: "80px", md: "90px" },
     bgcolor: "#fff",
     color: "#3A4E89",
     icon: "",

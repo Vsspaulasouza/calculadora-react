@@ -38,7 +38,7 @@ function Keyboard() {
             <CalcButton data-number="true">0</CalcButton>
             <CalcButton
                 gridcolumn="3/5"
-                w="220px"
+                w={{ base: "125px", sm: "195px", md: "220px" }}
                 bgcolor="#3A4E89"
                 color="#fff"
             >
