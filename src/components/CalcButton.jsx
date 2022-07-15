@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button, Spinner } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 function CalcButton({ w, gridcolumn, bgcolor, color, icon, children }) {
