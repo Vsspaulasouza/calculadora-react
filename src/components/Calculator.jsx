@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Heading } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import CalcHeader from "./CalcHeader";
 import Keyboard from "./Keyboard";
 
@@ -15,6 +16,10 @@ function Calculator() {
             }}
             bgColor="#f1f3f6"
             borderRadius="20px"
+            as={motion.div}
+            initial={{ opacity: 0.6 }}
+            animate={{ opacity: 1 }}
+            transition="0.5s linear"
         >
             <Heading as="h1" size="lg" color="#373A37" ml="16px">
                 Calculadora
