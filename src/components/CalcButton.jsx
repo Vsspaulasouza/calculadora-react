@@ -17,7 +17,14 @@ function CalcButton({ w, gridcolumn, bgcolor, color, icon, children }) {
             backgroundColor={bgcolor}
             color={color}
             leftIcon={icon}
-            _hover={{ bg: { bgcolor }, color: { color } }}
+            _hover={{
+                bg: { bgcolor },
+                color: { color },
+            }}
+            _active={{
+                bg: { bgcolor },
+                color: { color },
+            }}
         >
             {children}
         </Button>

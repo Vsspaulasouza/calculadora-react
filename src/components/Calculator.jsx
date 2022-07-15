@@ -12,7 +12,7 @@ function Calculator() {
             bgColor="#f1f3f6"
             borderRadius="20px"
         >
-            <Heading as="h1" size="lg" color="#373A37">
+            <Heading as="h1" size="lg" color="#373A37" ml="16px">
                 Calculadora
             </Heading>
             <CalcHeader />
