@@ -13,11 +13,11 @@ function CalcHeader() {
                 borderRadius="20px"
                 fontWeight="700"
                 fontSize="40px"
-                color="#3A4E89"
+                color="blue.700"
                 textAlign="right"
                 paddingRight="24px"
                 lineHeight="120px"
-                bgColor="#fff"
+                bg="whiteAlpha.900"
             >
                 000
             </Text>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-function CalcButton({ w, gridcolumn, bgcolor, color, icon, children }) {
+function CalcButton({ w, gridcolumn, color, icon, children }) {
     return (
         <Button
             gridColumn={gridcolumn}
@@ -15,11 +15,9 @@ function CalcButton({ w, gridcolumn, bgcolor, color, icon, children }) {
             fontWeight="700"
             fontSize="25px"
             boxSizing="border-box"
-            bg={bgcolor}
-            color={color}
+            colorScheme={color}
+            color={color === "gray" ? "blue.800" : "whiteAlpha.900"}
             leftIcon={icon}
-            _hover={{ bg: { bgcolor }, color: { color } }}
-            _active={{ bg: { bgcolor }, color: { color } }}
             as={motion.button}
             initial={({ x: "20px" }, { y: "-20px" }, { scale: 0.6 })}
             animate={{
@@ -44,7 +42,6 @@ function CalcButton({ w, gridcolumn, bgcolor, color, icon, children }) {
 CalcButton.propTypes = {
     children: PropTypes.string,
     w: PropTypes.shape(),
-    bgcolor: PropTypes.string,
     color: PropTypes.string,
     icon: PropTypes.element,
     gridcolumn: PropTypes.string,
@@ -52,8 +49,7 @@ CalcButton.propTypes = {
 
 CalcButton.defaultProps = {
     w: { base: "60px", sm: "80px", md: "90px" },
-    bgcolor: "#fff",
-    color: "#3A4E89",
+    color: "gray",
     icon: null,
     gridcolumn: "",
     children: null,

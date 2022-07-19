@@ -12,7 +12,7 @@ function App() {
                 height="100vh"
                 display="grid"
                 placeItems="center"
-                backgroundColor="#E5E5E5"
+                bg="blackAlpha.200"
             >
                 <Calculator />
             </Container>

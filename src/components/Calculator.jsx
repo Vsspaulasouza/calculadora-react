@@ -14,14 +14,14 @@ function Calculator() {
                 sm: "20px 10px 15px 10px",
                 md: "20px 10px 15px 10px",
             }}
-            bgColor="#f1f3f6"
+            bg="gray.100"
             borderRadius="20px"
             as={motion.div}
             initial={{ opacity: 0.6 }}
             animate={{ opacity: 1 }}
             transition="0.5s linear"
         >
-            <Heading as="h1" size="lg" color="#373A37" ml="16px">
+            <Heading as="h1" size="lg" color="gray.700" ml="16px">
                 Calculadora
             </Heading>
             <CalcHeader />
