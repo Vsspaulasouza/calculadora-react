@@ -31,11 +31,9 @@ function CalcButton({ w, gridcolumn, bgcolor, color, icon, children }) {
             transition="0.4s ease"
             whileHover={{
                 scale: 0.9,
-                transitionDuration: 0.2,
             }}
             whileTap={{
                 scale: 0.9,
-                transitionDuration: 0.2,
             }}
         >
             {children}
@@ -44,8 +42,8 @@ function CalcButton({ w, gridcolumn, bgcolor, color, icon, children }) {
 }
 
 CalcButton.propTypes = {
-    children: PropTypes.isRequired,
-    w: PropTypes.string,
+    children: PropTypes.string,
+    w: PropTypes.shape(),
     bgcolor: PropTypes.string,
     color: PropTypes.string,
     icon: PropTypes.element,
@@ -56,8 +54,9 @@ CalcButton.defaultProps = {
     w: { base: "60px", sm: "80px", md: "90px" },
     bgcolor: "#fff",
     color: "#3A4E89",
-    icon: "",
+    icon: null,
     gridcolumn: "",
+    children: null,
 };
 
 export default CalcButton;
