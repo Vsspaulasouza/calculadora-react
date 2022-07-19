@@ -1,10 +1,13 @@
 import React from "react";
-import { Container, Heading } from "@chakra-ui/react";
+import { Container, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import CalcHeader from "./CalcHeader";
 import Keyboard from "./Keyboard";
+import TopHeader from "./TopHeader";
 
 function Calculator() {
+    const bg = useColorModeValue("gray.100", "gray.600");
+
     return (
         <Container
             display="flex"
@@ -14,16 +17,14 @@ function Calculator() {
                 sm: "20px 10px 15px 10px",
                 md: "20px 10px 15px 10px",
             }}
-            bg="gray.100"
+            bg={bg}
             borderRadius="20px"
             as={motion.div}
             initial={{ opacity: 0.6 }}
             animate={{ opacity: 1 }}
             transition="0.5s linear"
         >
-            <Heading as="h1" size="lg" color="gray.700" ml="16px">
-                Calculadora
-            </Heading>
+            <TopHeader />
             <CalcHeader />
             <Keyboard />
         </Container>
