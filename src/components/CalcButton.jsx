@@ -21,20 +21,21 @@ function CalcButton({ w, gridcolumn, bgcolor, color, icon, children }) {
             _hover={{ bg: { bgcolor }, color: { color } }}
             _active={{ bg: { bgcolor }, color: { color } }}
             as={motion.button}
-            initial={({ x: "20px" }, { y: "-20px" })}
+            initial={({ x: "20px" }, { y: "-20px" }, { scale: 0.6 })}
             animate={{
                 x: ["10px", "0px"],
                 y: ["-10px", "0px"],
-                rotate: ["3", "0"],
+                rotate: ["180", "0"],
+                scale: 1,
             }}
             transition="0.4s ease"
             whileHover={{
                 scale: 0.9,
-                bg: { color },
-                color: { bgcolor },
+                transitionDuration: 0.2,
             }}
             whileTap={{
-                opacity: 0.8,
+                scale: 0.9,
+                transitionDuration: 0.2,
             }}
         >
             {children}
