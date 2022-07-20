@@ -3,7 +3,16 @@ import PropTypes from "prop-types";
 import { Button, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-function CalcButton({ w, gridcolumn, special, bg, color, icon, children }) {
+function CalcButton({
+    w,
+    gridcolumn,
+    special,
+    bg,
+    color,
+    icon,
+    children,
+    delay,
+}) {
     let background;
     let textColor;
 
@@ -41,7 +50,7 @@ function CalcButton({ w, gridcolumn, special, bg, color, icon, children }) {
                 rotate: ["180", "0"],
                 scale: 1,
             }}
-            transition="0.4s ease"
+            transition={`0.4s ease ${delay * 0.05}s`}
             whileHover={{
                 scale: 0.9,
             }}
@@ -62,6 +71,7 @@ CalcButton.propTypes = {
     icon: PropTypes.element,
     gridcolumn: PropTypes.string,
     special: PropTypes.bool,
+    delay: PropTypes.number,
 };
 
 CalcButton.defaultProps = {
@@ -72,6 +82,7 @@ CalcButton.defaultProps = {
     gridcolumn: "",
     children: null,
     special: false,
+    delay: 0,
 };
 
 export default CalcButton;
