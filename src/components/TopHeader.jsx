@@ -6,9 +6,10 @@ import {
     useColorMode,
     useColorModeValue,
 } from "@chakra-ui/react";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 function TopHeader() {
-    const { toggleColorMode } = useColorMode();
+    const { colorMode, toggleColorMode } = useColorMode();
     const color = useColorModeValue("gray.700", "gray.200");
 
     return (
@@ -17,7 +18,11 @@ function TopHeader() {
                 Calculadora
             </Heading>
             <Button size="sm" onClick={toggleColorMode}>
-                Toggle Mode
+                {colorMode === "light" ? (
+                    <MoonIcon color="blue.900" />
+                ) : (
+                    <SunIcon color="yellow.300" />
+                )}
             </Button>
         </Container>
     );
