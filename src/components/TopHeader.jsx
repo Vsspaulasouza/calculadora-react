@@ -13,10 +13,15 @@ function TopHeader() {
     const color = useColorModeValue("gray.700", "gray.200");
 
     return (
-        <Container display="flex" justifyContent="space-between">
+        <Container
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+        >
             <Heading as="h1" size="lg" color={color} ml="16px">
                 Calculadora
             </Heading>
+
             <Button size="sm" onClick={toggleColorMode}>
                 {colorMode === "light" ? (
                     <MoonIcon color="blue.900" />
