@@ -50,45 +50,9 @@ function Keyboard() {
                     gridcolumn={gridcolumn}
                     w={w}
                     delay={key}
-                >
-                    {value}
-                </CalcButton>
+                    value={value}
+                />
             ))}
-            {/* <CalcButton>C</CalcButton>
-            <CalcButton>±</CalcButton>
-            <CalcButton>%</CalcButton>
-            <CalcButton special color={color} bg={bg}>
-                ÷
-            </CalcButton>
-            <CalcButton>7</CalcButton>
-            <CalcButton>8</CalcButton>
-            <CalcButton>9</CalcButton>
-            <CalcButton special color={color} bg={bg}>
-                x
-            </CalcButton>
-            <CalcButton>4</CalcButton>
-            <CalcButton>5</CalcButton>
-            <CalcButton>6</CalcButton>
-            <CalcButton special color={color} bg={bg}>
-                -
-            </CalcButton>
-            <CalcButton>1</CalcButton>
-            <CalcButton>2</CalcButton>
-            <CalcButton>3</CalcButton>
-            <CalcButton special color={color} bg={bg}>
-                +
-            </CalcButton>
-            <CalcButton>,</CalcButton>
-            <CalcButton>0</CalcButton>
-            <CalcButton
-                gridcolumn="3/5"
-                w={{ base: "125px", sm: "195px", md: "220px" }}
-                special
-                color={color}
-                bg={bg}
-            >
-                =
-            </CalcButton> */}
         </Grid>
     );
 }

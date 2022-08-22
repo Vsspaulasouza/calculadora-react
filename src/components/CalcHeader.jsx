@@ -3,10 +3,13 @@ import { Container, Text, useColorModeValue } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import CalcButton from "./CalcButton";
 import SecondaryScreen from "./SecondaryScreen";
+import { useCalculator } from "../contexts/CalculatorContext";
 
 function CalcHeader() {
     const bg = useColorModeValue("whiteAlpha.900", "blackAlpha.600");
     const color = useColorModeValue("blue.700", "blue.400");
+
+    const { number } = useCalculator();
 
     return (
         <Container
@@ -28,7 +31,7 @@ function CalcHeader() {
                 bg={bg}
                 color={color}
             >
-                000
+                {number}
             </Text>
             <SecondaryScreen />
             <CalcButton icon={<ArrowBackIcon />} />

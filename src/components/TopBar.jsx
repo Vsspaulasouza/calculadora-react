@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
-function TopHeader() {
+function TopBar() {
     const { colorMode, toggleColorMode } = useColorMode();
     const color = useColorModeValue("gray.700", "gray.200");
 
@@ -33,4 +33,4 @@ function TopHeader() {
     );
 }
 
-export default TopHeader;
+export default TopBar;
