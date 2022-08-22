@@ -2,17 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { useCalculator } from "../contexts/CalculatorContext";
 
-function CalcButton({
-    w,
-    gridcolumn,
-    special,
-    bg,
-    color,
-    icon,
-    children,
-    delay,
-}) {
+function CalcButton({ w, gridcolumn, special, bg, color, icon, delay, value }) {
     let background;
     let textColor;
 
@@ -23,6 +15,10 @@ function CalcButton({
         background = bg;
         textColor = color;
     }
+
+    const { setNumber } = useCalculator();
+
+    const changeNumber = () => setNumber(value);
 
     return (
         <Button
@@ -57,14 +53,14 @@ function CalcButton({
             whileTap={{
                 scale: 0.9,
             }}
+            onClick={changeNumber}
         >
-            {children}
+            {value}
         </Button>
     );
 }
 
 CalcButton.propTypes = {
-    children: PropTypes.string,
     w: PropTypes.shape(),
     bg: PropTypes.string,
     color: PropTypes.string,
@@ -72,6 +68,7 @@ CalcButton.propTypes = {
     gridcolumn: PropTypes.string,
     special: PropTypes.bool,
     delay: PropTypes.number,
+    value: PropTypes.string,
 };
 
 CalcButton.defaultProps = {
@@ -80,9 +77,9 @@ CalcButton.defaultProps = {
     color: "blue.800",
     icon: null,
     gridcolumn: "",
-    children: null,
     special: false,
     delay: 0,
+    value: null,
 };
 
 export default CalcButton;
