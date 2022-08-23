@@ -7,24 +7,24 @@ function Keyboard() {
     const color = useColorModeValue("whiteAlpha.800", "blue.700");
 
     const buttons = [
-        { key: 0, value: "C" },
-        { key: 1, value: "±" },
-        { key: 2, value: "%" },
-        { key: 3, value: "÷", special: true },
-        { key: 4, value: "7" },
-        { key: 5, value: "8" },
-        { key: 6, value: "9" },
+        { key: 0, value: "C", actionType: "clearNumber" },
+        { key: 1, value: "±", actionType: "" },
+        { key: 2, value: "%", actionType: "" },
+        { key: 3, value: "÷", actionType: "", special: true },
+        { key: 4, value: "7", actionType: "addValue" },
+        { key: 5, value: "8", actionType: "addValue" },
+        { key: 6, value: "9", actionType: "addValue" },
         { key: 7, value: "x", special: true },
-        { key: 8, value: "4" },
-        { key: 9, value: "5" },
-        { key: 10, value: "6" },
-        { key: 11, value: "-", special: true },
-        { key: 12, value: "1" },
-        { key: 13, value: "2" },
-        { key: 14, value: "3" },
-        { key: 15, value: "+", special: true },
-        { key: 16, value: "," },
-        { key: 17, value: "0" },
+        { key: 8, value: "4", actionType: "addValue" },
+        { key: 9, value: "5", actionType: "addValue" },
+        { key: 10, value: "6", actionType: "addValue" },
+        { key: 11, value: "-", actionType: "", special: true },
+        { key: 12, value: "1", actionType: "addValue" },
+        { key: 13, value: "2", actionType: "addValue" },
+        { key: 14, value: "3", actionType: "addValue" },
+        { key: 15, value: "+", actionType: "", special: true },
+        { key: 16, value: ",", actionType: "" },
+        { key: 17, value: "0", actionType: "addValue" },
         {
             key: 18,
             value: "=",
@@ -41,18 +41,21 @@ function Keyboard() {
             justifyItems="center"
             alignItems="center"
         >
-            {buttons.map(({ key, value, special, gridcolumn, w }) => (
-                <CalcButton
-                    key={key}
-                    special={special}
-                    color={special && color}
-                    bg={special && bg}
-                    gridcolumn={gridcolumn}
-                    w={w}
-                    delay={key}
-                    value={value}
-                />
-            ))}
+            {buttons.map(
+                ({ key, value, actionType, special, gridcolumn, w }) => (
+                    <CalcButton
+                        key={key}
+                        special={special}
+                        color={special && color}
+                        bg={special && bg}
+                        gridcolumn={gridcolumn}
+                        w={w}
+                        delay={key}
+                        value={value}
+                        actionType={actionType}
+                    />
+                )
+            )}
         </Grid>
     );
 }

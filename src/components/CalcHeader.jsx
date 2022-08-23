@@ -9,7 +9,7 @@ function CalcHeader() {
     const bg = useColorModeValue("whiteAlpha.900", "blackAlpha.600");
     const color = useColorModeValue("blue.700", "blue.400");
 
-    const { number } = useCalculator();
+    const { state } = useCalculator();
 
     return (
         <Container
@@ -31,7 +31,7 @@ function CalcHeader() {
                 bg={bg}
                 color={color}
             >
-                {number}
+                {state.number}
             </Text>
             <SecondaryScreen />
             <CalcButton icon={<ArrowBackIcon />} />

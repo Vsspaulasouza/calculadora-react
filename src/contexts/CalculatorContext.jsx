@@ -4,13 +4,26 @@ import PropTypes from "prop-types";
 export const CalculatorContext = React.createContext({});
 
 export function CalculatorContextProvider({ children }) {
-    const [number, setNumber] = React.useState("0");
-    const [secondaryNumber, setSecondaryNumber] = React.useState("");
+    const reducer = (state, action) => {
+        switch (action.type) {
+            case "clearNumber":
+                return { number: "", secondaryNumber: state.secondaryNumber };
+            case "addValue":
+                return {
+                    number: state.number + action.value,
+                    secondaryNumber: state.secondaryNumber,
+                };
+            case "clearSecondaryNumber":
+                return { number: state.number, secondaryNumber: "" };
+            default:
+                return state;
+        }
+    };
+    const initialState = { number: "", secondaryNumber: "" };
 
-    const value = React.useMemo(
-        () => ({ number, setNumber, secondaryNumber, setSecondaryNumber }),
-        [number, secondaryNumber]
-    );
+    const [state, dispatch] = React.useReducer(reducer, initialState);
+
+    const value = React.useMemo(() => ({ state, dispatch }), [state]);
 
     return (
         <CalculatorContext.Provider value={value}>

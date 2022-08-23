@@ -4,7 +4,17 @@ import { Button, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useCalculator } from "../contexts/CalculatorContext";
 
-function CalcButton({ w, gridcolumn, special, bg, color, icon, delay, value }) {
+function CalcButton({
+    w,
+    gridcolumn,
+    special,
+    bg,
+    color,
+    icon,
+    delay,
+    value,
+    actionType,
+}) {
     let background;
     let textColor;
 
@@ -16,9 +26,9 @@ function CalcButton({ w, gridcolumn, special, bg, color, icon, delay, value }) {
         textColor = color;
     }
 
-    const { setNumber } = useCalculator();
+    const { dispatch } = useCalculator();
 
-    const changeNumber = () => setNumber(value);
+    const handleClick = () => dispatch({ type: actionType, value });
 
     return (
         <Button
@@ -53,7 +63,7 @@ function CalcButton({ w, gridcolumn, special, bg, color, icon, delay, value }) {
             whileTap={{
                 scale: 0.9,
             }}
-            onClick={changeNumber}
+            onClick={handleClick}
         >
             {value}
         </Button>
@@ -69,6 +79,7 @@ CalcButton.propTypes = {
     special: PropTypes.bool,
     delay: PropTypes.number,
     value: PropTypes.string,
+    actionType: PropTypes.string,
 };
 
 CalcButton.defaultProps = {
@@ -80,6 +91,7 @@ CalcButton.defaultProps = {
     special: false,
     delay: 0,
     value: null,
+    actionType: "",
 };
 
 export default CalcButton;
