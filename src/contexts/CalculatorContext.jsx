@@ -38,7 +38,7 @@ function handleOperation(
 export function CalculatorContextProvider({ children }) {
     const reducer = (state, action) => {
         switch (action.type) {
-            case "clearNumber":
+            case "clear":
                 return clear(
                     state.number,
                     state.secondaryNumber,

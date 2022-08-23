@@ -7,7 +7,7 @@ function Keyboard() {
     const color = useColorModeValue("whiteAlpha.800", "blue.700");
 
     const buttons = [
-        { key: 0, value: "C", actionType: "clearNumber" },
+        { key: 0, value: "C", actionType: "clear" },
         { key: 1, value: "±", actionType: "changeOperator" },
         { key: 2, value: "%", actionType: "operation" },
         { key: 3, value: "÷", actionType: "operation", special: true },
