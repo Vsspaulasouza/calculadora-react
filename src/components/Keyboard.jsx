@@ -8,7 +8,7 @@ function Keyboard() {
 
     const buttons = [
         { key: 0, value: "C", actionType: "clearNumber" },
-        { key: 1, value: "±", actionType: "" },
+        { key: 1, value: "±", actionType: "changeOperator" },
         { key: 2, value: "%", actionType: "" },
         { key: 3, value: "÷", actionType: "", special: true },
         { key: 4, value: "7", actionType: "addValue" },
@@ -23,7 +23,7 @@ function Keyboard() {
         { key: 13, value: "2", actionType: "addValue" },
         { key: 14, value: "3", actionType: "addValue" },
         { key: 15, value: "+", actionType: "", special: true },
-        { key: 16, value: ",", actionType: "" },
+        { key: 16, value: ".", actionType: "addDot" },
         { key: 17, value: "0", actionType: "addValue" },
         {
             key: 18,

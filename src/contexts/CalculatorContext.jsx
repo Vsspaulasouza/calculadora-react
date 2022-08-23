@@ -3,6 +3,15 @@ import PropTypes from "prop-types";
 
 export const CalculatorContext = React.createContext({});
 
+function changeOperator(value) {
+    if (value === "") return value;
+    return `${-value}`;
+}
+
+function addDot(value) {
+    if (!value.includes(".")) return `${value}.`;
+    return value;
+}
 export function CalculatorContextProvider({ children }) {
     const reducer = (state, action) => {
         switch (action.type) {
@@ -11,6 +20,16 @@ export function CalculatorContextProvider({ children }) {
             case "addValue":
                 return {
                     number: state.number + action.value,
+                    secondaryNumber: state.secondaryNumber,
+                };
+            case "changeOperator":
+                return {
+                    number: changeOperator(state.number),
+                    secondaryNumber: state.secondaryNumber,
+                };
+            case "addDot":
+                return {
+                    number: addDot(state.number),
                     secondaryNumber: state.secondaryNumber,
                 };
             case "clearSecondaryNumber":
