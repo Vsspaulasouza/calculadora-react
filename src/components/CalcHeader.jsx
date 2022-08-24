@@ -34,7 +34,7 @@ function CalcHeader() {
                 {state.number}
             </Text>
             <SecondaryScreen />
-            <CalcButton icon={<ArrowBackIcon />} />
+            <CalcButton icon={<ArrowBackIcon />} actionType="delete" />
         </Container>
     );
 }

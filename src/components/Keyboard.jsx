@@ -28,6 +28,7 @@ function Keyboard() {
         {
             key: 18,
             value: "=",
+            actionType: "solve",
             special: true,
             gridcolumn: "3/5",
             w: { base: "125px", sm: "195px", md: "220px" },
@@ -50,7 +51,6 @@ function Keyboard() {
                         bg={special && bg}
                         gridcolumn={gridcolumn}
                         w={w}
-                        delay={key}
                         value={value}
                         actionType={actionType}
                     />

@@ -11,7 +11,6 @@ function CalcButton({
     bg,
     color,
     icon,
-    delay,
     value,
     actionType,
 }) {
@@ -56,7 +55,7 @@ function CalcButton({
                 rotate: ["180", "0"],
                 scale: 1,
             }}
-            transition={`0.4s ease ${delay * 0.05}s`}
+            transition="0.4s ease"
             whileHover={{
                 scale: 0.9,
             }}
@@ -77,7 +76,6 @@ CalcButton.propTypes = {
     icon: PropTypes.element,
     gridcolumn: PropTypes.string,
     special: PropTypes.bool,
-    delay: PropTypes.number,
     value: PropTypes.string,
     actionType: PropTypes.string,
 };
@@ -89,7 +87,6 @@ CalcButton.defaultProps = {
     icon: null,
     gridcolumn: "",
     special: false,
-    delay: 0,
     value: null,
     actionType: "",
 };

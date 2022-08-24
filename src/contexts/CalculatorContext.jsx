@@ -14,7 +14,7 @@ function changeOperator(value) {
 }
 
 function addDot(value) {
-    if (!value.includes(".")) return `${value}.`;
+    if (!value.includes(".") && value !== "") return `${value}.`;
     return value;
 }
 
@@ -35,6 +35,41 @@ function handleOperation(
 
     return { number, secondaryNumber, operation };
 }
+
+function solveResult(number, secondaryNumber, operation) {
+    const secondaryNumberFiltered = secondaryNumber.slice(0, -1);
+    let result = "";
+
+    switch (operation) {
+        case "%":
+            result = (secondaryNumberFiltered * number) / 100;
+            break;
+        case "÷":
+            result = secondaryNumberFiltered / number;
+            break;
+        case "x":
+            result = secondaryNumberFiltered * number;
+            break;
+        case "-":
+            result = secondaryNumberFiltered - number;
+            break;
+        case "+":
+            result = +secondaryNumberFiltered + +number;
+            break;
+        default:
+            break;
+    }
+
+    result = Number(result).toFixed(2);
+    if (result.endsWith(".00")) [result] = result.split(".");
+
+    return { number: result.toString(), secondaryNumber: "", operation: "" };
+}
+
+function handleDelete(value) {
+    return value.slice(0, -1);
+}
+
 export function CalculatorContextProvider({ children }) {
     const reducer = (state, action) => {
         switch (action.type) {
@@ -69,8 +104,18 @@ export function CalculatorContextProvider({ children }) {
                     state.operation,
                     action.value
                 );
-            case "clearSecondaryNumber":
-                return { number: state.number, secondaryNumber: "" };
+            case "solve":
+                return solveResult(
+                    state.number,
+                    state.secondaryNumber,
+                    state.operation
+                );
+            case "delete":
+                return {
+                    number: handleDelete(state.number),
+                    secondaryNumber: state.secondaryNumber,
+                    operation: state.operation,
+                };
             default:
                 return state;
         }
