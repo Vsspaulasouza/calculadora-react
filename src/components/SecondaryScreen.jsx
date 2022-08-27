@@ -19,7 +19,9 @@ function ScondaryScreen() {
             color={color}
             position="absolute"
             top="25px"
-            left="20px"
+            left="23px"
+            minW="40px"
+            minH="34px"
         >
             {state.secondaryNumber}
         </Text>
