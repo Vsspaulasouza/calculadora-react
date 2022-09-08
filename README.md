@@ -6,8 +6,8 @@
 
 -   [Sobre](#about)
 -   [Preview](#demo)
--   [Deploy](#deployment)
 -   [Construído usando](#built_using)
+-   [Deploy](#deployment)
 -   [Rodando o projeto](#getting_started)
 -   [Autores](#authors)
 
