@@ -1,12 +1,12 @@
 import React from "react";
 import { Text, useColorModeValue } from "@chakra-ui/react";
-import { useCalculator } from "../contexts/CalculatorContext";
+import { useSelector } from "react-redux";
 
 function ScondaryScreen() {
     const bg = useColorModeValue("whiteAlpha.900", "blackAlpha.600");
     const color = useColorModeValue("blue.700", "blue.400");
 
-    const { state } = useCalculator();
+    const calculator = useSelector((state) => state);
 
     return (
         <Text
@@ -23,7 +23,7 @@ function ScondaryScreen() {
             minW="40px"
             minH="34px"
         >
-            {state.secondaryNumber}
+            {calculator.secondaryNumber}
         </Text>
     );
 }

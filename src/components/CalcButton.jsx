@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { useCalculator } from "../contexts/CalculatorContext";
+import { useDispatch } from "react-redux";
 
 function CalcButton({
     w,
@@ -25,9 +25,9 @@ function CalcButton({
         textColor = color;
     }
 
-    const { dispatch } = useCalculator();
+    const dispatch = useDispatch();
 
-    const handleClick = () => dispatch({ type: actionType, value });
+    const handleClick = () => dispatch(actionType(value));
 
     return (
         <Button
@@ -77,7 +77,7 @@ CalcButton.propTypes = {
     gridcolumn: PropTypes.string,
     special: PropTypes.bool,
     value: PropTypes.string,
-    actionType: PropTypes.string,
+    actionType: PropTypes.func.isRequired,
 };
 
 CalcButton.defaultProps = {
@@ -88,7 +88,6 @@ CalcButton.defaultProps = {
     gridcolumn: "",
     special: false,
     value: null,
-    actionType: "",
 };
 
 export default CalcButton;

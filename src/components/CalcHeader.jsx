@@ -1,15 +1,16 @@
 import React from "react";
 import { Container, Text, useColorModeValue } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
+import { useSelector } from "react-redux";
 import CalcButton from "./CalcButton";
 import SecondaryScreen from "./SecondaryScreen";
-import { useCalculator } from "../contexts/CalculatorContext";
+import { deleteCharacter } from "../features/calculator/calculatorSlice";
 
 function CalcHeader() {
     const bg = useColorModeValue("whiteAlpha.900", "blackAlpha.600");
     const color = useColorModeValue("blue.700", "blue.400");
 
-    const { state } = useCalculator();
+    const calculator = useSelector((state) => state);
 
     return (
         <Container
@@ -31,10 +32,10 @@ function CalcHeader() {
                 bg={bg}
                 color={color}
             >
-                {state.number}
+                {calculator.number}
             </Text>
             <SecondaryScreen />
-            <CalcButton icon={<ArrowBackIcon />} actionType="delete" />
+            <CalcButton icon={<ArrowBackIcon />} actionType={deleteCharacter} />
         </Container>
     );
 }

@@ -1,17 +1,18 @@
 import React from "react";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
+import { Provider } from "react-redux";
 import theme from "./theme";
 import "@fontsource/share-tech-mono";
-import { CalculatorContextProvider } from "../contexts/CalculatorContext";
 import Calculator from "../components";
+import store from "./store";
 
 function App() {
     return (
         <ChakraProvider theme={theme}>
             <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-            <CalculatorContextProvider>
+            <Provider store={store}>
                 <Calculator />
-            </CalculatorContextProvider>
+            </Provider>
         </ChakraProvider>
     );
 }
