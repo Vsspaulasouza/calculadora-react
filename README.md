@@ -22,6 +22,7 @@ Esse projeto consiste em uma calculadora simples, feita pra testar meus conhecim
 ## ⛏️ Consturído usando <a name = "built_using"></a>
 
 -   [React](https://pt-br.reactjs.org/) - Framework Javascript para criação de aplicações web
+-   [Redux](https://redux.js.org/) - Biblioteca para gerenciamento de estados
 -   [Chakra UI](https://chakra-ui.com/) - Biblioteca de componentes
 -   [Frammer Motion](https://www.framer.com/motion/) - Biblioteca para animação e gestos
 -   [Vite](https://vitejs.dev/) - Ferramenta de build
