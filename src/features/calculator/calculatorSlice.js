@@ -1,66 +1,47 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
 
 const reducers = {
-    clear({ number, secondaryNumber, operation }) {
-        const newSecondaryNumber = number ? secondaryNumber : "";
-        return {
-            number: "",
-            secondaryNumber: newSecondaryNumber,
-            operation,
-        };
+    clear: (state) => {
+        const newSecondaryNumber = state.number ? state.secondaryNumber : "";
+        state.number = "";
+        state.secondaryNumber = newSecondaryNumber;
     },
-    addValue({ number, secondaryNumber, operation }, { payload }) {
-        return {
-            number: number + payload,
-            secondaryNumber,
-            operation,
-        };
+    addValue(state, { payload }) {
+        state.number += payload;
     },
-    changeOperator({ number, secondaryNumber, operation }) {
-        const newNumber = number === "" ? number : `${-number}`;
-        return {
-            number: newNumber,
-            secondaryNumber,
-            operation,
-        };
+    changeOperator(state) {
+        state.number &&= `${-state.number}`;
     },
-    addDot({ number, secondaryNumber, operation }) {
-        let newNumber = number;
-        if (!number.includes(".") && number !== "") newNumber = `${number}.`;
-        return {
-            number: newNumber,
-            secondaryNumber,
-            operation,
-        };
+    addDot(state) {
+        if (!state.number.includes(".") && state.number !== "")
+            state.number = `${state.number}.`;
     },
-    addOperation(currentState, { payload }) {
-        if (currentState.secondaryNumber === "" && currentState.number !== "") {
-            return {
-                number: "",
-                secondaryNumber: currentState.number + payload,
-                operation: payload,
-            };
+    addOperation(state, { payload }) {
+        if (state.secondaryNumber === "" && state.number !== "") {
+            state.secondaryNumber = state.number + payload;
+            state.number = "";
+            state.operation = payload;
         }
-        return currentState;
     },
-    solveResult({ number, secondaryNumber, operation }) {
-        const secondaryNumberFiltered = secondaryNumber.slice(0, -1);
+    solveResult(state) {
+        const secondaryNumberFiltered = state.secondaryNumber.slice(0, -1);
         let result = "";
-        switch (operation) {
+        switch (state.operation) {
             case "%":
-                result = (secondaryNumberFiltered * number) / 100;
+                result = (secondaryNumberFiltered * state.number) / 100;
                 break;
             case "÷":
-                result = secondaryNumberFiltered / number;
+                result = secondaryNumberFiltered / state.number;
                 break;
             case "x":
-                result = secondaryNumberFiltered * number;
+                result = secondaryNumberFiltered * state.number;
                 break;
             case "-":
-                result = secondaryNumberFiltered - number;
+                result = secondaryNumberFiltered - state.number;
                 break;
             case "+":
-                result = +secondaryNumberFiltered + +number;
+                result = +secondaryNumberFiltered + +state.number;
                 break;
             default:
                 break;
@@ -69,19 +50,12 @@ const reducers = {
         result = Number(result).toFixed(2);
         if (result.endsWith(".00")) [result] = result.split(".");
 
-        return {
-            number: result.toString(),
-            secondaryNumber: "",
-            operation: "",
-        };
+        state.number = result.toString();
+        state.secondaryNumber = "";
+        state.operation = "";
     },
-    deleteCharacter({ number, secondaryNumber, operation }) {
-        const newNumber = number.slice(0, -1);
-        return {
-            number: newNumber,
-            secondaryNumber,
-            operation,
-        };
+    deleteCharacter(state) {
+        state.number = state.number.slice(0, -1);
     },
 };
 
