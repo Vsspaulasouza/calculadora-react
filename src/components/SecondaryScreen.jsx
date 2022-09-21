@@ -1,12 +1,13 @@
 import React from "react";
 import { Text, useColorModeValue } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import { selectCalculator } from "../features/calculator/calculatorSlice";
 
 function ScondaryScreen() {
     const bg = useColorModeValue("whiteAlpha.900", "blackAlpha.600");
     const color = useColorModeValue("blue.700", "blue.400");
 
-    const calculator = useSelector((state) => state);
+    const calculator = useSelector(selectCalculator);
 
     return (
         <Text

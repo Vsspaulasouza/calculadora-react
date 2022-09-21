@@ -75,4 +75,6 @@ export const {
     deleteCharacter,
 } = slice.actions;
 
+export const selectCalculator = (state) => state.calculator;
+
 export default slice.reducer;

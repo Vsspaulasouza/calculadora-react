@@ -4,13 +4,16 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useSelector } from "react-redux";
 import CalcButton from "./CalcButton";
 import SecondaryScreen from "./SecondaryScreen";
-import { deleteCharacter } from "../features/calculator/calculatorSlice";
+import {
+    deleteCharacter,
+    selectCalculator,
+} from "../features/calculator/calculatorSlice";
 
 function CalcHeader() {
     const bg = useColorModeValue("whiteAlpha.900", "blackAlpha.600");
     const color = useColorModeValue("blue.700", "blue.400");
 
-    const calculator = useSelector((state) => state);
+    const calculator = useSelector(selectCalculator);
 
     return (
         <Container
