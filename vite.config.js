@@ -4,7 +4,10 @@ import { VitePWA } from "vite-plugin-pwa";
 
 const manifestForPlugin = {
     registerType: "prompt",
-    includeAssets: ["public/icon.png"],
+    workbox: {
+        globPatterns: ["**/*"],
+    },
+    includeAssets: ["**/*"],
     manifest: {
         name: "Calculadora",
         short_name: "Calculadora",
