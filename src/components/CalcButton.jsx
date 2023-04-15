@@ -31,6 +31,7 @@ function CalcButton({
 
     return (
         <Button
+            aria-label={`${value}` || "Apagar"}
             gridColumn={gridcolumn}
             w={w}
             h={{ base: "60px", sm: "80px", md: "90px" }}
